@@ -9,3 +9,87 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+@keyframes menu-flow {
+    from {
+        inset-inline-start: -18px;
+    }
+
+    to {
+        inset-inline-start: -14px;
+    }
+}
+
+@keyframes sparks {
+    from {
+        fill: transparent;
+    }
+
+    to {
+        fill: var(--heart-color);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+.card__icon-button .main-body {
+    fill: transparent;
+    transition: none;
+}
+
+.card__icon-button:hover .main-body {
+    fill: var(--main-color);
+    transition: fill 0.02s 0.1s linear;
+}
+
+.card__icon-button .core {
+    fill: transparent;
+    transition: none;
+}
+
+.card__icon-button:hover .core {
+    fill: var(--main-color);
+    transition: fill 0.02s 0.05s linear;
+}
+
+.card__icon-button:active .core {
+    fill: var(--heart-color);
+}
+
+.card__icon-button:active .main-body {
+    fill: var(--heart-color);
+}
+
+.like-icon.is-liked .core {
+    fill: var(--heart-color);
+    transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+    fill: var(--heart-color);
+    transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+    fill: var(--heart-color);
+    transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
+    transform-origin: center;
+    animation: scale 0.3s 0.1s ease-in alternate;
+}
+
+.like-icon.is-liked .sparks {
+    fill: transparent;
+    transform-origin: center;
+    animation: sparks 0.3s 0.3s ease-in;
+}

@@ -1,1 +1,26 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+    --main-bg: #fff;
+    --main-color: #000;
+
+    --background-image: repeating-linear-gradient(
+            90deg,
+            #d3d3d3 0 2px,
+            rgba(0, 0, 0, 0) 2px 4px
+    ),
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgba(0, 0, 0, 0) 2px 4px),
+    linear-gradient(#e7e7e7, #1a1a1a);
+
+    --main-font-family: 'Inter';
+    --accent-font-family: 'PressStart2P';
+
+    --base-font-size: 18px;
+
+    --header-title-font-size: clamp(3.0625rem, calc(3.0625rem + (4.0625 - 3.0625) * ((100vw - 23.4375rem) / (90 - 23.4375))), 4.0625rem);
+    --header-subtitle-font-size: clamp(0.875rem, calc(0.875rem + (1.4375 - 0.875) * ((100vw - 23.4375rem) / (90 - 23.4375))), 1.4375rem);
+
+    --heart-color: #ff0000;
+}
+
+
