@@ -29,7 +29,10 @@
     position: relative;
     background: transparent;
     border: 2px solid var(--main-color);
+    font-family: var(--accent-font-family), sans-serif;
+    font-size: 14px;
     cursor: pointer;
+    transition: box-shadow 0.3s ease;
 }
 
 .button::before {
@@ -74,12 +77,13 @@
 }
 
 .header__title {
+    text-transform: uppercase;
     font-size: var(--header-title-font-size);
 }
 
 .header__subtitle {
-    font-size: var(--header-subtitle-font-size);
     text-transform: uppercase;
+    font-size: var(--header-subtitle-font-size);
 }
 
 /*card*/
@@ -93,10 +97,12 @@
 .card__title {
     font-size: var(--base-font-size);
     padding: 5px 10px;
+    font-variation-settings: 'wght' 700, 'slnt' 0;
     border-bottom: 2px solid var(--main-color);
 }
 
 .card__image-wrapper {
+    margin: 0;
     position: relative;
     line-height: 0;
     overflow: hidden;
@@ -120,7 +126,7 @@
     1px -1px var(--main-bg);
     position: absolute;
     top: 32px;
-    right: 25px;
+    right: clamp(13px, calc(13px + (25 - 13) * ((100vw - 320px) / (1440 - 320))), 25px);
 }
 
 @supports (text-stroke: 1px var(--main-bg)) or (-webkit-text-stroke: 1px var(--main-bg)) {
@@ -131,7 +137,7 @@
     }
 }
 
-.card__description {
+.card__content {
     border-top: 2px solid var(--main-color);
     padding: 25px;
     display: grid;
@@ -147,17 +153,15 @@
     margin-bottom: 27px;
 }
 
-.card__button-wrapper {
+.card__buttons {
     display: flex;
     justify-content: end;
+    align-items: center;
     gap: 7px;
 }
 
 .card__like-button {
-    background-color: var(--main-bg);
-    font-family: var(--accent-font-family), sans-serif;
-    font-size: 14px;
-    inline-size: 130px;
+    min-inline-size: 130px;
     padding-block: 10px;
 }
 
@@ -169,6 +173,13 @@
     background: transparent;
     border: none;
     padding: 0;
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+    transition: outline 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+    outline: 2px solid var(--main-color);
 }
 
 .save-button {
@@ -178,8 +189,6 @@
     margin-inline: auto;
     gap: 8px;
     padding: 15px 20px;
-    font-family: var(--accent-font-family), sans-serif;
-    font-size: 14px;
 }
 
 .save-button__icon {
@@ -187,31 +196,31 @@
     mix-blend-mode: difference;
 }
 
-.saturate {
+.filter-saturate {
     filter: saturate(30%);
 }
 
-.brightness {
+.filter-brightness {
     filter: brightness(200%);
 }
 
-.sepia {
+.filter-sepia {
     filter: sepia(60%);
 }
 
-.invert {
+.filter-invert {
     filter: invert(80%);
 }
 
-.grayscale {
+.filter-grayscale {
     filter: grayscale(80%);
 }
 
-.hue-rotate {
+.filter-hue-rotate {
     filter: hue-rotate(90deg) blur(2px);
 }
 
-.blur {
+.filter-blur {
     filter: blur(13px);
 }
 
@@ -250,8 +259,7 @@
 }
 
 .dialog__button {
-    font-family: var(--accent-font-family), sans-serif;
-    padding: 13px 0;
+    padding: 12.5px 0;
     text-transform: uppercase;
     inline-size: 100%;
 }
